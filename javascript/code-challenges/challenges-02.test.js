@@ -76,9 +76,7 @@ const forEachTwoToThe = (arr) => {
   // Solution code here...
   const newArr = [];
 
-  arr.forEach(int => {
-    newArr.push(int.Math.pow(2,int));
-  });
+  arr.forEach(int => newArr.push(Math.pow(2,int)));
   return newArr;
 };
 
