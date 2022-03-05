@@ -53,12 +53,6 @@ For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const oddValues = (arr) => {
-  // Solution code here...
-  // null, undifined, "", and 0 are all considered falsey.
-  // let val = undifined;
-  // if (val) {
-  // we would never get here.
-  // }
   const evenNums = arr.filter((num) => !((num % 2) - 1));
   return evenNums;
 };
