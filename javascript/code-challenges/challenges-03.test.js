@@ -23,7 +23,6 @@ Write a function named typeNum that, given an array as input, uses filter to ret
 
 For example, typeNum([1, 'bob' ,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
-
 const typeNum = (arr) => {
   const numbersOlny = arr.filter(Number);
   return numbersOlny;
@@ -53,8 +52,7 @@ For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const oddValues = (arr) => {
-  const evenNums = arr.filter((num) => !((num % 2) - 1));
-  return evenNums;
+  return arr.filter((num) => !((num % 2) - 1));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,11 +63,8 @@ Write a function named notInFirstArray that, given two arrays as input, uses fil
 For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
-const notInFirstArray = (forbiddenValues, arr) => {
-  const newArr = arr.filter((number) => !forbiddenValues.includes(number));
-  console.log("newArr :: ", newArr);
-  return newArr;
-};
+const notInFirstArray = (forbiddenValues, arr) =>
+  arr.filter((number) => !forbiddenValues.includes(number));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
