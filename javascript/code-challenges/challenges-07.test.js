@@ -69,7 +69,7 @@ const howMuchPencil = (str) => {
     result.push(str.slice([i]));
   }
   // str.forEach((string) => {
-  //   result.push(string.slice(1));
+  //   result.push(string.slice(str) + 1);
   // });
   return result;
 };
