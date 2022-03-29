@@ -72,10 +72,6 @@ HR has asked you to change the data to make it easier to print so that it looks 
 ]
 
 ------------------------------------------------------------------------------------------------ */
-// foreach just calls a method on each element being iterated over.
-// map interates over an array, and for each element will call a method on the element and return a new array.
-// reduce itnerates over an array and creates an accumulator, as well as for each element executes a method, and returns the results of the accumulator.
-// filter applies a method to determine the truiness or falyiness of the method, and removes an element accordingly, and returns the results as a new
 const updateNumbers = (obj) => {
   return Object.entries(obj).map((entry) => entry[0] + ": " + entry[1]);
 };
@@ -132,7 +128,6 @@ const characters = [
 const getHouses = (arr) => {
   const houses = [];
   for (const obj of arr) {
-    // a different version of "forEch"
     houses.push(obj.house);
   }
   return houses;
