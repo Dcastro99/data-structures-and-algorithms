@@ -180,25 +180,7 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  for (let store of arr) {
-    for (let item of store.items) {
-      if (store.name === "Pet store" && item.name === "Treats") {
-        return item.quantity;
-      }
-    }
-  }
-
-  // return arr[2].items[1].quantity;
-
-  // const petStore = arr.find(obj => obj.store === 'Pet store');
-  // return petStore.items.find(item => item.name === "Treats").quantity;
-  // return petStore.items.forEach(item => {
-  //   if (item.name === "Treats") {
-  //     return item.quantity;
-  //   }
-  // });
-
-  // return arr.filter(obj => obj.store === 'Pet store').items.filter(item => item.name === "Treats").quantity;
+  return arr[2].items[1].quantity;
 };
 
 /* ------------------------------------------------------------------------------------------------

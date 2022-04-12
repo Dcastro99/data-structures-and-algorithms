@@ -7,7 +7,14 @@ Write a function named longestString that takes in an array of strings and retur
 ------------------------------------------------------------------------------------------------ */
 
 const longestString = (arr) => {
-  return arr.indexOf();
+  // return arr.indexOf();
+  let currentLongest = { string: "", index: -1 };
+  arr.forEach((str, idx) => {
+    str.length > currentLongest.string.length
+      ? (currentLongest = { string: str, index: idx })
+      : "";
+  });
+  return currentLongest.index;
 };
 
 /* ------------------------------------------------------------------------------------------------
