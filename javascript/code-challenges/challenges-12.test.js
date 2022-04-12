@@ -89,7 +89,10 @@ Your function should include a single regular expression pattern that matches an
 Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
-const validatePhoneNumber = (phoneNumber) => {};
+const validatePhoneNumber = (phoneNumber) => {
+  let pattern = /^(\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$/;
+  return pattern.test(phoneNumber);
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
