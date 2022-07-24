@@ -37,7 +37,7 @@ export class LinkedList<T> implements Collection<T> {
 
 
 
-  /// converts items to string
+  
   toString(): string {
 
     let string = '';
