@@ -7,6 +7,10 @@
     "check": "tsc",
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dcastro99/data-structures-and-algorithms/tree/linked-list/linked-list.git"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
