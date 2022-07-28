@@ -21,6 +21,6 @@ describe("linked list", () => {
 
 
   });
-//testing 1 2 3
+//testing one two three 
 
 });
