@@ -1,4 +1,3 @@
-
 'use strict';
 
 // Require our linked list implementation
