@@ -64,3 +64,11 @@ We are moving and checking from one node to the next. if items are found continu
 <!-- Description of each method publicly available to your Linked List -->
 
 <!-- added into new folder-->
+
+## Whiteboard Process
+<!-- Embedded whiteboard image -->
+
+## Approach & Efficiency
+I iterate through each node. Only way I know how.
+
+## Solution

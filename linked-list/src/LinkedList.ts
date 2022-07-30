@@ -7,6 +7,7 @@ export class LinkedList<T> implements Collection<T> {
   // TODO
   start: Node<T> | undefined;
 
+
   insert(item: T) {
     const newNode = {
       item: item,
@@ -52,6 +53,59 @@ export class LinkedList<T> implements Collection<T> {
 
     return string;
   }
+
+
+
+
+  append(item: T, ): void {
+    let lastNode = this.start;
+    if(lastNode){
+      while (lastNode.next){
+        lastNode = lastNode?.next;
+      }
+      const newNode = {
+        item: item,
+        next: undefined
+      };
+      lastNode.next = newNode;
+    }
+
+  }
+
+
+  insertBefore(needle: T, value: T) {
+    let flag = false;
+    let tracker = this.start;
+    while(tracker !== undefined) {
+    if (tracker.next?.item === needle && flag === false){
+      flag = true;
+      const trackNode = tracker.next;
+
+        tracker.next = {
+          item : value,
+          next: trackNode,
+        };
+
+    }
+    tracker = tracker.next;
+    }
+
+  }
+  insertAfter(needle: T, value: T) {
+    let tracker = this.start;
+  while(tracker !== undefined) {
+    if (tracker.item === needle ){
+      let trackNode = tracker.next;
+        const newNode = {
+          item: value,
+          next: trackNode,
+        };
+        tracker.next = newNode;
+    }
+    tracker = tracker.next;
+  }
+  }
+
 }
 
 interface Node<T> {
