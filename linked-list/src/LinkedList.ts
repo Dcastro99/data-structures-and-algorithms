@@ -70,7 +70,6 @@ export class LinkedList<T> implements Collection<T> {
     if (tracker.next?.item === needle && flag === false){
       flag = true;
       const trackNode = tracker.next;
-
         tracker.next =
           {item: value,
             next: trackNode

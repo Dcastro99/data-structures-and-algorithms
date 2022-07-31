@@ -84,4 +84,3 @@ iterate through the list and when list returns undefined, it appends new node
 > ### Insert after
 
 - wile loop will iterate through existing list until node found and insert new node to the list
-
