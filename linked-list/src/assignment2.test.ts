@@ -1,7 +1,7 @@
 import { LinkedList } from "./LinkedList";
 
 describe("Linked List", () => {
-  it.skip("can append an element", () => {
+  it("can append an element", () => {
     const list = new LinkedList<string>();
 
     list.insert("Frodo");
@@ -13,10 +13,10 @@ describe("Linked List", () => {
     expect(str).toEqual(
       "{ Merry } -> { Sam } -> { Frodo } -> { Pippin } -> NULL"
     );
-    console.log('append:',str);
+
   });
 
-  it("can insert before an element", () => {
+  it("can insert before a node in the middle", () => {
     const list = new LinkedList<string>();
 
     list.insert("Frodo");
@@ -27,10 +27,10 @@ describe("Linked List", () => {
 
     const str = list.toString();
     expect(str).toEqual("{ Merry } -> { Pippin } -> { Sam } -> { Frodo } -> NULL");
-    console.log('insertBefore:',str);
+
   });
 
-  it.skip("can insert after an element", () => {
+  it("can insert after node in the middle", () => {
     const list = new LinkedList<string>();
 
     list.insert("Frodo");
@@ -43,6 +43,51 @@ describe("Linked List", () => {
     expect(str).toEqual(
       "{ Merry } -> { Sam } -> { Pippin } -> { Frodo } -> NULL"
     );
-    console.log('insertafter:',str);
+
   });
+
+  it("can append musltiple elements", () => {
+    const list = new LinkedList<string>();
+
+    list.insert("Frodo");
+    list.append("Sam");
+    list.append("Pippin");
+    list.insert("Merry");
+
+    const str = list.toString();
+    expect(str).toEqual(
+      "{ Merry } -> { Frodo } -> { Sam } -> { Pippin } -> NULL"
+    );
+
+  });
+
+  it("can insert at the beggining of a list", () => {
+    const list = new LinkedList<string>();
+    //existing list
+    list.insert("Frodo");
+    list.insert("Sam");
+    list.insert("Merry");
+    //to be added
+    list.insert("Pippin");
+
+    const str = list.toString();
+    expect(str).toEqual("{ Pippin } -> { Merry } -> { Sam } -> { Frodo } -> NULL");
+  });
+
+  it("can insert after last element", () => {
+    const list = new LinkedList<string>();
+
+    list.insert("Frodo");
+    list.insert("Sam");
+    list.insert("Merry");
+
+    list.insertAfter("Frodo", "Pippin");
+
+    const str = list.toString();
+    expect(str).toEqual(
+      "{ Merry } -> { Sam } -> { Frodo } -> { Pippin } -> NULL"
+    );
+
+  });
+
 });

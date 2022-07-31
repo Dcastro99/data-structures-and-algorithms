@@ -2,7 +2,7 @@ import { Collection } from "./Collection";
 import { LinkedList } from "./LinkedList";
 
 describe("linked list", () => {
-  it.skip("runs my custom test", () => {
+  it("runs my custom test", () => {
     const list: Collection<string> = new LinkedList<string>();
     expect(list).toBeDefined();
 
@@ -18,10 +18,7 @@ describe("linked list", () => {
     expect(list.includes("Frodo")).toBe(true);
     expect(list.includes("Bilbo")).toBe(false);
     // console.log(JSON.stringify(list));
-
-
   });
-//testing 1 2 3
-
-
 });
+
+

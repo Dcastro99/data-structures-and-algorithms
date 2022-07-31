@@ -60,15 +60,27 @@ We are moving and checking from one node to the next. if items are found continu
     - Returns: a string representing all the values in the Linked List, formatted as:
     - ```{ a } -> { b } -> { c } -> NULL```
 
-## API
-<!-- Description of each method publicly available to your Linked List -->
-
-<!-- added into new folder-->
 
 ## Whiteboard Process
-<!-- Embedded whiteboard image -->
+
+![Whiteboard](whiteboard-challenge6.png)
 
 ## Approach & Efficiency
-I iterate through each node. Only way I know how.
+
+I iterate through each node.
 
 ## Solution
+
+ > ### Append:
+
+- append will take in and item.
+check the beginning of the linked list.
+iterate through the list and when list returns undefined, it appends new node
+
+> ### Insert before
+
+- we check the linked list for an existing node. the while loop will iterate through the list until found and insert new node to list.
+
+> ### Insert after
+
+- wile loop will iterate through existing list until node found and insert new node to the list
