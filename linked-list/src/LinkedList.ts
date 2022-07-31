@@ -16,15 +16,9 @@ export class LinkedList<T> implements Collection<T> {
     this.start = newNode;
   }
 
+
   includes(item: T): boolean {
     let tracker = this.start
-    // if (tracker?.item === item){
-    //   return true;
-    // }
-
-    //   if (tracker?.next?.item === item) {
-    //     return true;
-    //   }
     while (tracker !== undefined) {
       if (tracker.item === item) {
         return true;
@@ -35,7 +29,6 @@ export class LinkedList<T> implements Collection<T> {
 
     return false;
   }
-
 
 
   /// to string
@@ -55,8 +48,6 @@ export class LinkedList<T> implements Collection<T> {
   }
 
 
-
-
   append(item: T, ): void {
     let lastNode = this.start;
     if(lastNode){
@@ -69,7 +60,6 @@ export class LinkedList<T> implements Collection<T> {
       };
       lastNode.next = newNode;
     }
-
   }
 
 
@@ -81,16 +71,21 @@ export class LinkedList<T> implements Collection<T> {
       flag = true;
       const trackNode = tracker.next;
 
-        tracker.next = {
-          item : value,
-          next: trackNode,
-        };
-
-    }
+        tracker.next =
+          {item: value,
+            next: trackNode
+          };
+        }
+          else if (
+            tracker.item === needle && flag === false) {
+              flag = true;
+              this.insert(value);
+            }
     tracker = tracker.next;
     }
-
   }
+
+
   insertAfter(needle: T, value: T) {
     let tracker = this.start;
   while(tracker !== undefined) {
@@ -105,7 +100,6 @@ export class LinkedList<T> implements Collection<T> {
     tracker = tracker.next;
   }
   }
-
 }
 
 interface Node<T> {
