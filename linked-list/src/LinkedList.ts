@@ -43,7 +43,6 @@ export class LinkedList<T> implements Collection<T> {
       tracker = tracker.next;
     }
     string += 'NULL';
-
     return string;
   }
 
