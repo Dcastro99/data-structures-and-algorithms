@@ -46,6 +46,19 @@ describe("linked list", () => {
 
   })
 
+  // it("bitch", ()=> {
+  //   const list = new LinkedList<string>();
+
+  //   list.insert("Frodo");
+  //   list.insert("Sam");
+  //   list.insert("Merry");
+  //   list.insert("Merry is a bitch");
+  //   // Merry is a bitch" -> merrt, same forod
+  //   list.kthFromEnd(5);
+  //   // expect(()=>list.kthFromEnd(-2)).toThrow();
+
+  // })
+
   it("happy path", ()=> {
     const list = new LinkedList<string>();
 

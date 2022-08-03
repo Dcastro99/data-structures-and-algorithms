@@ -99,13 +99,12 @@ export class LinkedList<T> implements Collection<T> {
   }
   }
 
-  kthFromEnd(list: number){
-    if(list < 0) {
+  kthFromEnd(k: number){
+    if(k < 0) {
       throw Error;
     };
-    var count = -1;
-    var tracker = this.start;
-    tracker = this.start;
+    let count = 0;
+    let tracker = this.start;
 
     // iterate over the list
     while (tracker != undefined) {
@@ -114,17 +113,22 @@ export class LinkedList<T> implements Collection<T> {
         count++;
         tracker = tracker.next;
     }
-    const newList = count - list;
-    if(newList < 0){
+    const newK = count - k;
+    // Checks new count is less than zero
+    if(newK < 0){
       throw Error;
     };
+    // we update the tracker to be the beginning again
     tracker = this.start;
-    for(let i= 0; i < newList; i++) {
+    //loop through list newK times
+    for(let i= 1; i < newK; i++) {
+      //this updates the current "tracker" to be tracker.next if tracker is not null / undefined.
       tracker = tracker?.next;
     }
 
 
-    // not found
+    // return tracker.item if tracker is not null / undefined.
+    // console.log("END : ", tracker);
     return tracker?.item;
   }
 
