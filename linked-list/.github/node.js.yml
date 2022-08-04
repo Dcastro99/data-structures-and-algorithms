@@ -1,14 +1,7 @@
 name: Run Linked-list Tests
 
-on:
-  push:
-    branches: [main]
-    paths:
-      - "linked-list/**"
-  pull_request:
-    branches: [main]
-    paths:
-      - "linked-list/**"
+on:[push]
+
 
 jobs:
   test:
