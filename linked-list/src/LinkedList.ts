@@ -1,10 +1,10 @@
 import { Collection, display } from "./Collection";
-//fixed
+
 //Three parts of a variable:
 // let name: type = value (these are the three variables)
 
 export class LinkedList<T> implements Collection<T> {
-  // TODO
+
   start: Node<T> | undefined;
 
 
