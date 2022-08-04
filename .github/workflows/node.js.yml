@@ -1,4 +1,4 @@
-name: Run Javascript Tests
+name: Run Linked-list Tests
 
 on:
   push:
