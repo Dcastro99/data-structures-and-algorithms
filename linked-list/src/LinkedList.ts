@@ -1,5 +1,5 @@
 import { Collection, display } from "./Collection";
-//fixed
+
 //Three parts of a variable:
 // let name: type = value (these are the three variables)
 
