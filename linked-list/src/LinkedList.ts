@@ -3,140 +3,137 @@ import { Collection, display } from "./Collection";
 //Three parts of a variable:
 // let name: type = value (these are the three variables)
 
-export class LinkedList<T> implements Collection<T> {
 
-  start: Node<T> | undefined;
+export class LinkedList<T> implements Collection<T> {
+  head: Node<T> | undefined;
+  tail: Node<T> | undefined;
+  size = 0;
+
+  static zip<T>(ll1: LinkedList<T>, ll2: LinkedList<T>): LinkedList<T> {
+    const zipped = new LinkedList<T>();
+    let list1 = ll1.head;
+    let list2 = ll2.head;
+
+    while(list1 || list2) {
+      if (list1){
+        zipped.append(list1.item);
+        list1 = list1.next
+      }
+      if(list2){
+        zipped.append(list2.item);
+        list2 = list2.next
+      }
+    }
+    return zipped;
+  }
+
 
 
   insert(item: T) {
-    const newNode = {
+    this.head = {
       item: item,
-      next: this.start
+      next: this.head,
     };
-    this.start = newNode;
+    if (this.tail === undefined) {
+      this.tail = this.head;
+    }
+    this.size += 1;
   }
 
 
   includes(item: T): boolean {
-    let tracker = this.start
+    let tracker = this.head;
+
     while (tracker !== undefined) {
       if (tracker.item === item) {
         return true;
       }
-      // continues to next node
+      // move forward
       tracker = tracker.next;
     }
 
     return false;
   }
 
-
   /// to string
   toString(): string {
+    let str = "";
 
-    let string = '';
-    let tracker = this.start;
-
+    let tracker = this.head;
     while (tracker !== undefined) {
-      const stringNode = display(tracker.item);
-      string += `{ ${stringNode} } -> `
+      // Add this node to the string
+      const strItem = display(tracker.item);
+      str += `{ ${strItem} } -> `;
       tracker = tracker.next;
     }
-    string += 'NULL';
-    return string;
+
+    str += "NULL";
+
+    return str;
   }
 
-
-  append(item: T, ): void {
-    let lastNode = this.start;
-    if(lastNode){
-      while (lastNode.next){
-        lastNode = lastNode?.next;
-      }
-      const newNode = {
-        item: item,
-        next: undefined
-      };
-      lastNode.next = newNode;
+  append(item: T): void {
+    if (this.tail === undefined) {
+      this.insert(item);
+    } else {
+      this.tail = this.tail.next = { item };
+      this.size += 1;
     }
   }
 
 
-  insertBefore(needle: T, value: T) {
-    let flag = false;
-    let tracker = this.start;
-    while(tracker !== undefined) {
-    if (tracker.next?.item === needle && flag === false){
-      flag = true;
-      const trackNode = tracker.next;
-        tracker.next =
-          {item: value,
-            next: trackNode
-          };
-        }
-          else if (
-            tracker.item === needle && flag === false) {
-              flag = true;
-              this.insert(value);
-            }
-    tracker = tracker.next;
-    }
-  }
 
-
-  insertAfter(needle: T, value: T) {
-    let tracker = this.start;
-  while(tracker !== undefined) {
-    if (tracker.item === needle ){
-      let trackNode = tracker.next;
-        const newNode = {
-          item: value,
-          next: trackNode,
+  insertBefore(needle: T, item: T) {
+    let tracker = this.head;
+    while (tracker?.next !== undefined) {
+      if (tracker.next.item === needle) {
+        tracker.next = {
+          item,
+          next: tracker.next,
         };
-        tracker.next = newNode;
+        this.size += 1;
+        return;
+      }
+      tracker = tracker.next;
     }
-    tracker = tracker.next;
-  }
-  }
-
-  kthFromEnd(k: number){
-    if(k < 0) {
-      throw Error;
-    };
-    let count = 0;
-    let tracker = this.start;
-
-    // iterate over the list
-    while (tracker != undefined) {
-        // compare each element of the list
-        // with given element
-        count++;
-        tracker = tracker.next;
-    }
-    const newK = count - k;
-    // Checks new count is less than zero
-    if(newK < 0){
-      throw Error;
-    };
-    // we update the tracker to be the beginning again
-    tracker = this.start;
-    //loop through list newK times
-    for(let i= 1; i < newK; i++) {
-      //this updates the current "tracker" to be tracker.next if tracker is not null / undefined.
-      tracker = tracker?.next;
-    }
-
-
-    // return tracker.item if tracker is not null / undefined.
-    // console.log("END : ", tracker);
-    return tracker?.item;
   }
 
+  insertAfter(needle: T, item: T) {
+    let tracker = this.head;
+    while (tracker !== undefined) {
+      if (tracker.item === needle) {
+        tracker.next = {
+          item,
+          next: tracker.next,
+        };
+        this.size += 1;
+        return;
+      }
+      tracker = tracker.next;
+    }
+  }
 
+  kth(k: number): T {
+    let tracker = this.head;
+    while (tracker !== undefined) {
+      if (k === 0) {
+        return tracker.item;
+      }
+      k -= 1;
+      tracker = tracker.next;
+    }
+    throw new Error("Went off end of list");
+  }
 
+  kthFromEnd(k: number): T {
+    return this.kth(this.size - k - 1);
+  }
 }
+
+
+
 
 interface Node<T> {
   item: T;
-  next: Node<T>|undefined;
+  next?: Node<T>|undefined;
 }
