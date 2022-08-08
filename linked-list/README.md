@@ -60,39 +60,8 @@ We are moving and checking from one node to the next. if items are found continu
     - Returns: a string representing all the values in the Linked List, formatted as:
     - ```{ a } -> { b } -> { c } -> NULL```
 
-> # Code Challenge 06
+    ### Table Of Contents
 
-## Whiteboard Process
-
-![Whiteboard](whiteboard-challenge6.png)
-
-## Approach & Efficiency
-
-I iterate through each node.
-
-## Solution
-
- > ### Append:
-
-- append will take in and item.
-check the beginning of the linked list.
-iterate through the list and when list returns undefined, it appends new node
-
-> ### Insert before
-
-- we check the linked list for an existing node. the while loop will iterate through the list until found and insert new node to list.
-
-> ### Insert after
-
-- wile loop will iterate through existing list until node found and insert new node to the list
-
-> # Code Challenge 07
-
-## Whiteboard Process
-
-
-## Approach & Efficiency
-
-I check the beggining of the list and iterate throw the nodes in the list adding them as it goes. If the number we look for is over or under the list quantaty I throw an error.
-
-## Solution
+- >[Linked-List-Zipped](./401/Linked-list-zipped.md)
+- >[Linked-List-Insertions](./401/Linked-List-Insertions.md)
+- >[Lisnked-Liste-kth](./401/Linked-List-kth)
